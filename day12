@@ -1,0 +1,35 @@
+function elfBattle(elf1, elf2) {
+  let vida1 = 3;
+  let vida2 = 3;
+
+  for (let i = 0; i < elf1.length; i++) {
+    const mov1 = elf1[i];
+    const mov2 = elf2[i];
+
+
+    let danioA1 = 0;
+    let danioA2 = 0;
+
+
+    if (mov2 === 'F') danioA1 = 2;
+    else if (mov2 === 'A' && mov1 !== 'B') danioA1 = 1;
+
+
+    if (mov1 === 'F') danioA2 = 2;
+    else if (mov1 === 'A' && mov2 !== 'B') danioA2 = 1;
+
+
+    vida1 -= danioA1;
+    vida2 -= danioA2;
+
+
+    if (vida1 <= 0 || vida2 <= 0) {
+      break;
+    }
+  }
+
+  
+  if (vida1 > vida2) return 1;
+  if (vida2 > vida1) return 2;
+  return 0; 
+}
